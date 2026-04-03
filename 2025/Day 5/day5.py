@@ -7,7 +7,7 @@ with open(sys.argv[1], 'r') as f:
 
 ranges = []
 for r in raw_ranges.splitlines():
-    s, e = map(r.split('-'))
+    s, e = map(int, r.split('-'))
     ranges.append((s, e))
 
 part1 = 0
