@@ -19,7 +19,7 @@ for ingred_str in raw_ingreds.splitlines():
             fresh = 1
             break
     part1 += fresh
-
+    #Test comment, don't worry
 part2 = ""
 
 print(f"Part 1: {part1}")
