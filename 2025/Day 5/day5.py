@@ -2,10 +2,25 @@ import sys
 
 
 with open(sys.argv[1], 'r') as f:
-    lines = list(map(str.strip, f.readlines()))
+    raw_input = f.read()
+    raw_ranges, raw_ingreds = raw_input.split('\n\n')
 
-part1 = "Test"
-part2 = "Test"
+ranges = []
+for r in raw_ranges.splitlines():
+    s, e = map(r.split('-'))
+    ranges.append((s, e))
+
+part1 = 0
+for ingred_str in raw_ingreds.splitlines():
+    ingred = int(ingred_str)
+    fresh = 0
+    for s, e in ranges:
+        if s <= ingred <= e:
+            fresh = 1
+            break
+    part1 += fresh
+
+part2 = ""
 
 print(f"Part 1: {part1}")
 
