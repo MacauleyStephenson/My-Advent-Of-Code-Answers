@@ -16,15 +16,16 @@ def point_in_poly(x: int, y: int) -> bool:
 
 def edge_intersects_rect(x1, y1, x2, y2, rx1, ry1, rx2, ry2):
     if y1 == y2:
-        if max(x1, x2) > rx1 and min(x1, x2) < rx2:
-            return True
+        if ry1 < y1 < ry2:
+            if max(x1, x2) > rx1 and min(x1, x2) < rx2:
+                return True
     else:
         if rx1 < x1 < rx2:
             if max(y1, y2) > ry1 and min(y1, y2) < ry2:
                 return True
     return False
 
-def square_valid(x1, x2, y1, y2):
+def square_valid(x1: int, x2: int, y1: int, y2: int) -> bool:
     x1, x2 = sorted([x1, x2])
     y1, y2 = sorted([y1, y2])
     
